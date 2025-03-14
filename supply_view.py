@@ -58,6 +58,3 @@ def delete():
     if s['sno']==sno:
       supplies.remove(s)
   return redirect("/supply/list")
-
-
-app.run(debug=True)
