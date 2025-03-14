@@ -1,0 +1,122 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+header,
+nav,
+footer {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+header {
+    font-weight: bold;
+    letter-spacing: 1em;
+    font-size: 1.25em;
+    border: 1px solid lightgray;
+}
+
+nav {
+    background-color: rgb(40, 40, 40);
+}
+
+ul {
+    overflow: hidden;
+    list-style-type: none;
+}
+
+nav>ul>li {
+    float: left;
+    width: 120px;
+    background-color: rgb(40, 40, 40);
+    color: white;
+}
+
+nav>ul>li>a {
+    text-decoration: none;
+    color: gray;
+    font-weight: bold;
+    display: block;
+}
+
+nav>ul>li>a:hover {
+    color: white;
+    background-color: gray;
+}
+
+
+main {
+    overflow: hidden;
+}
+
+aside,
+section {
+    float: left;
+}
+
+aside {
+    width: 100px;
+    background-color: lightgray;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+}
+
+
+/* 버튼 위치 하단 고정 도움받음 */
+section {
+    width: 1000px;
+    min-height: 600px;
+    padding: 20px;
+    position: relative;
+    /* 이 부분 추가: 버튼의 위치를 section 안에서 조정 */
+}
+
+.go_to_write {
+    position: absolute;
+    /* 이 부분 추가: 버튼을 절대 위치로 설정 */
+    left: 0;
+    /* section의 좌측에 맞추기 */
+    bottom: 0;
+    /* section의 하단에 맞추기 */
+    padding: 40px 20px;
+    /* 버튼과 경계 사이에 여백을 주기 */
+}
+
+.form-label {
+    margin-bottom: 0px;
+}
+
+.form-control {
+    margin-top: 0px;
+}
+
+form>button {
+    margin: 16px 0;
+}
+
+.title_finished {
+    background-color: rgb(248, 241, 197);
+    display: inline-block;
+    padding: 0 3px;
+}
+
+#f_button {
+    margin-bottom: 5px;
+}
+
+#d_button {
+    margin-top: 5px;
+}
+
+footer {
+    border: 1px solid rgb(47, 97, 77);
+}

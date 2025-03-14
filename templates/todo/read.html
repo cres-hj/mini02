@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/todo.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="app">
+        <header>
+            ICIA Todos
+        </header>
+        <nav>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="/contacts/list">연락처</a></li>
+                <li><a href="/finance/list">가계부</a></li>
+                <li><a href="/supply/list">비품</a></li>
+                <li>
+                    <a href="/todo/list">할일</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <aside>부가정보</aside>
+            <section>
+                {% if todo['finish'] == False %}
+                <div class="mb-3 mt-3">
+                    <label for="f_date" class="form-label">마감일:</label>
+                    <input type="date" class="form-control" id="f_date" name="f_date" value="{{todo.f_date}}" required>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="f_date" class="form-label">할일:</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{todo.title}}" required>
+                </div>
+                <label for="comment">설명:</label>
+                <textarea class="form-control" rows="5" id="content" name="content" required>{{todo.content}}</textarea>
+                <form action="/todo/finish" method="post" id="f_button">
+                    <input type="hidden" name="tno" value="{{todo.tno}}">
+                    <button class="btn btn-info" id="f_button">완료하기</button>
+                </form>
+
+                <form action="/todo/delete" method="post" id="d_button">
+                    <input type="hidden" name="tno" value="{{todo.tno}}">
+                    <button class="btn btn-danger" id="d_button">삭제하기</button>
+                </form>
+                {% else %}
+                <div class="mb-3 mt-3">
+                    <label for="f_date" class="form-label">마감일:</label>
+                    <input type="date" class="form-control" id="f_date" name="f_date" value="{{todo.f_date}}" disabled>
+                </div>
+                <div>
+                    <p class="title_finished">{{todo.title}} (완료된 일정입니다)</p>
+                </div>
+                <label for="comment">설명:</label>
+                <textarea class="form-control" rows="5" id="content" name="content" disabled>{{todo.content}}</textarea>
+                <form action="/todo/delete" method="post" id="d_button">
+                    <input type="hidden" name="tno" value="{{todo.tno}}">
+                    <button class="btn btn-danger">삭제하기</button>
+                </form>
+                {% endif %}
+
+            </section>
+            <aside>부가정보</aside>
+        </main>
+        <footer>
+            copyrignt &copy;2025 ICIA
+        </footer>
+
+    </div>
+</body>
+
+</html>
